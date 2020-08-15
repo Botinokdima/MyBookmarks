@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="botinok_dima">
+    <meta property="og:logo" content="https://i.ibb.co/hgngMr8/logo.png">
+    <meta property="og:image" content="https://i.ibb.co/hgngMr8/logo.png">
+    <meta property="og:site_name" content="My bookmarks">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style/style.css?ver=9.7">
+    <link rel="stylesheet" href="./style/media.css?ver=4.8">
+    <title>My bookmarks</title>
+    <link rel="icon" href="ico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="ico.ico" type="image/x-icon">
+
+    <!-- kit.fontawesome -->
+    <script src="./plugins/kit.fontawesome.js"></script>
+    <!-- drag-on-drop -->
+    <script src="./plugins/Sortable.js"></script>
+
+</head>
+
+<body>
+    <!-- === ru: Окно приветсвие en: Welcome window === -->
+    <div id="welcome_popup_background">
+        <div id="welcome_popup">
+            <div class="welcome_content">
+                <h1>Добро пожаловать на сайт закладок</h1>
+                <p>Пройдите быстрое обучение</p>
+            </div>
+            <div class="welcome_content">
+                <p>Как добавить закладку</p>
+                <div class="block_img">
+                    <img src="./graphics/teaching img/page_1.jpg" alt="page_1.jpg">
+                </div>
+            </div>
+            <div class="welcome_content">
+                <p>Редактирование и удаление закладки</p>
+                <div class="block_img">
+                    <img src="./graphics/teaching img/page_2.jpg" alt="page_2.jpg">
+                </div>
+            </div>
+            <div class="welcome_content">
+                <p>Создание группы и поиск по закладкам</p>
+                <div class="block_img">
+                    <img src="./graphics/teaching img/page_3.jpg" alt="page_3.jpg">
+                </div>
+            </div>
+            <div class="welcome_content">
+                <p>Редактирование группы двойной клик или правой кнопкой мыши</p>
+                <div class="block_img">
+                    <img src="./graphics/teaching img/page_4.jpg" alt="page_4.jpg">
+                </div>
+            </div>
+            <div class="welcome_content">
+                <p>Настройки , так же можно открыть правой кнопкой мыши</p>
+                <div class="block_img">
+                    <img src="./graphics/teaching img/page_5.jpg" alt="page_5.jpg">
+                </div>
+                <button id="close_welcome_popup"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- === ru: Контекстное меню en: Context menu === -->
+    <div id="window_menu" class="contentMenu" style="display: none;">
+        <ul>
+            <li>Добавить закладку</li>
+            <li>Настройки</li>
+        </ul>
+    </div>
+
+    <!-- === ru: Попап(всплывающие окна) en: Popap === -->
+    <div class="popup_background">
+        <div class="popup_form" id="add_site_form">
+            <div class="close_popup"></div>
+            <div class="form_input">
+
+                <div class="wrap_input">
+                    <div class="clear_value"></div>
+                    <input type="text" id="inp_link" class="data_input" placeholder="Адресс сайта..."
+                        autocomplete="off">
+                </div>
+
+                <div class="wrap_input">
+                    <div class="clear_value"></div>
+                    <input type="text" id="inp_title" class="data_input" placeholder="Название сайта..."
+                        autocomplete="off">
+                </div>
+
+                <button id="btn_save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup_background">
+        <div class="popup_form" id="edit_form">
+            <div class="close_popup"></div>
+            <div class="form_input">
+
+                <div class="wrap_input">
+                    <div class="clear_value"></div>
+                    <input type="text" id="edit_inp_link" class="data_input" placeholder="Адресс сайта..."
+                        autocomplete="off">
+                </div>
+
+                <div class="wrap_input">
+                    <div class="clear_value"></div>
+                    <input type="text" id="edit_inp_title" class="data_input" placeholder="Название сайта..."
+                        autocomplete="off">
+                </div>
+
+                <div class="wrap_input">
+                    <div id="del_img_link" class="clear_value"></div>
+                    <input type="text" id="link_bg" class="data_input " placeholder="Ссылка на изображение..."
+                        autocomplete="off">
+                </div>
+
+                <div id="select_groups_block">
+                    <select name="select_groups" id="select_groups">
+                        <option selected disabled>Выбрать группу</option>
+                    </select>
+                    <p>Переместить закладку</p>
+                </div>
+
+                <button id="btn_edit_save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="popup_warning">
+        <img src="/graphics/warning.png" alt="warning.png" width="100px">
+        <p>!!!ВНИМАНИЕ!!!</p>
+        <p>ВСЕ ЗАКЛАДКИ БУДУТ УДАЛЕНЫ И ВОСТАНОВЛЕНЫ НОВЫЕ</p>
+        <button class="btn_Yes_Popup">ДА</button><button class="btn_No_Popup">НЕТ</button>
+    </div> -->
+    <div class="popup_background">
+        <div id="popup_remove_groups">
+            <img src="/graphics/warning.png" alt="warning.png" width="100px">
+            <p>!!!ВНИМАНИЕ!!!</p>
+            <p>УДАЛИТЬ ГРУППУ?</p>
+            <button class="btn_Yes_Popup" style="cursor: pointer;">ДА</button><button class="btn_No_Popup"
+                style="cursor: pointer;">НЕТ</button>
+        </div>
+    </div>
+
+    <!-- ===Меню групп===\\ //=== ru: Меню групп en: Group menu === -->
+    <!-- class="stop_click" -->
+    <div id="groups">
+
+        <div id="left_block">
+            <div id="block_add_groups">
+                <input type="text" id="value_groups" placeholder="Новая группа" maxlength="20">
+                <div id="add_groups"></div>
+                <div id="toggle_input_groups"><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>
+            </div>
+
+            <div id="wrap_search">
+                <div id="toogle_wrap_search"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                <input type="text" id="bookmark_search" placeholder="Поиск по закладкам">
+                <div id="toggle_input_search"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                <label for="checkbox_menuGroups" class="search_result">Найдено совпадений <span id="search_result"
+                        style="color: red;">0</span><i class="fa fa-bars toogle_result" aria-hidden="true"></i></label>
+            </div>
+
+            <ul id="menu_groups" class="dragscroll">
+                <li class="active" data-group-number='id-0'>Главная</li>
+            </ul>
+
+            <div id="arrow">
+                <div id="arrow_left"></div>
+                <div id="arrow_right"></div>
+            </div>
+
+        </div>
+
+        <div id="right_block">
+
+            <div id="information_authorization_block">
+                <div id="authorize_button_google" class="button_google_account"
+                    title="Выполнить вход в аккаунт google для синхронизацым закладок"></div>
+                <div id="signout_button_google" class="button_google_account" title="Выход из аккаунта google"></div>
+                <div id="bookmark_sync_status"
+                    title="Сохранить закладки в Google Drive / При удержании восстановить закладки"></div>
+            </div>
+
+            <div id="burger_setting">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- === ru: В мобильной версии нижний блок управление en: In the mobile version, the lower control unit === -->
+    <div id="footer_mobile">
+
+        <div id="view_mode">
+            <div id="media_btn_large" data-view="large"><i class="fa fa-th-large" aria-hidden="true"></i></div>
+            <div id="media_btn_list" data-view="list" style="margin-left: 10px;"><i class="fa fa-th-list"
+                    aria-hidden="true"></i></div>
+        </div>
+
+        <div id="media_btn_add" class="stop_click"><i class="fa fa-plus-square" aria-hidden="true"></i></div>
+
+        <div id="wrap_btn_add">
+            <label for="checkbox_menuGroups" style="color: red;"><i class="fa fa-list-alt"
+                    aria-hidden="true"></i></label>
+            <div id="media_btn_setting" style="margin-left: 10px;"><i class="fa fa-sliders" aria-hidden="true"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- === ru: Экран закладок en: Bookmarks Screen === -->
+    <div id="bookmarks_window">
+        <div id="group_navigation">
+            <div class="group_navigation_arrow" id="navigation_left"> </div>
+            <div class="group_navigation_arrow" id="navigation_right"> </div>
+        </div>
+        <div id="add_bookmark" class="stop_click">
+            <img src="./graphics/add.png" alt="add">
+        </div>
+    </div>
+
+    <!-- === ru: Настройки en: Setting === -->
+    <div class="popup_background">
+        <div id="setting">
+
+            <div class="close_popup"></div>
+
+            <ul id="choice_of_settings">
+                <li data-paragraph="sett_1" class="active">Настройки</li>
+                <li data-paragraph="sett_2">Смена фона</li>
+                <li data-paragraph="sett_3">Сохранить</li>
+            </ul>
+
+            <div id="settings_window">
+
+                <div id="sett_1" class="block_content">
+
+                    <ul>
+
+                        <li id="quantity_block">
+                            <div class="wrap_block">
+                                <p>Количество блоков в ряду<span class="items"> 8 </span></p>
+                                <input type="range" min="4" max="10" step="1" value="8" id="range_quantity">
+                            </div>
+                        </li>
+
+                        <li id="distance_block">
+                            <div class="wrap_block">
+                                <p>Расcтояние между блоками<span class="items"> 10 </span>px</p>
+                                <input type="range" min="0" max="40" step="1" value="10" id="range_distance">
+                            </div>
+                        </li>
+
+                        <li id="radius_block">
+                            <div class="wrap_block">
+                                <p>Закругления углов<span class="items"> 10 </span>px</p>
+                                <input type="range" min="0" max="30" step="1" value="10" id="range_radius">
+                            </div>
+                        </li>
+
+                        <li id="color_block_link">
+                            <div class="wrap_block">
+                                <p>Цвет закладки <input type="color" id="link_color_block" style="margin: 0 30px;"></p>
+                            </div>
+                        </li>
+                        <li id="color_groups">
+                            <div class="wrap_block">
+                                <p>Цвет меню групп <input type="color" id="header_color_menu" style="margin: 0 30px;">
+                                </p>
+                            </div>
+                        </li>
+
+                        <li id="border_block_link">
+                            <div class="wrap_block">
+                                <p>Обводка блока <input type="checkbox" checked id="checkbox_border"
+                                        style="margin: 0 30px;"></p>
+                            </div>
+                        </li>
+
+                        <li id="animation_block_link">
+                            <div class="wrap_block">
+                                <p>ZOOM-эффект на закладке <input type="checkbox" id="checkbox_animation"
+                                        style="margin-left: 30px;">
+                                </p>
+                            </div>
+                        </li>
+
+                        <li id="hover_sound">
+                            <p>Звук на закладке <input type="checkbox" id="checkbox_hover_sound"
+                                    style="margin-left: 30px;">
+                            </p>
+                        </li>
+
+                        <li id="fix_menuGroups">
+                            <p>Закрепить / Открепить панель групп <input type="checkbox" checked
+                                    id="checkbox_menuGroups" style="margin-left: 30px;"></p>
+                        </li>
+
+                        <li id="fix_arrow_naw_group">
+                            <p>Навигация по группам <input type="checkbox" id="checkbox_nawGroups"
+                                    style="margin-left: 30px;"></p>
+                        </li>
+
+                        <li id="transparent_fix_menuGroups">
+                            <p>Прозрачная панель групп <input type="checkbox" checked
+                                    id="checkbox_transparentMenuGroups" style="margin-left: 30px;"></p>
+                        </li>
+
+                        <li id="default_settings">
+                            <div class="wrap_block">
+                                <p>Сбросить настройки</p>
+                                <button id="btn_delit_setting" class="btn_delete">RESET</button>
+                            </div>
+                        </li>
+
+                        <li id="delete_everything">
+                            <div class="wrap_block">
+                                <p>Удалить всё</p>
+                                <span id="timer_delete" style="padding: 0px 30px;"></span>
+                                <button id="btn_delete_everything" class="btn_delete">WARNING</button>
+                            </div>
+                        </li>
+
+                        <li id="test_gluk">
+                            <div class="wrap_block">
+                                <p>Если не создаются группы(закладки) или не работает сохранение или что то не работает
+                                    то можно попробовать это <a id="error_correction" href="#" style="color:red">
+                                        исправить </a> если не помогло тогда <a href="#btn_delete_everything">это</a>
+                                </p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div id="sett_2" class="block_content">
+                    <div id="setting_bg">
+                        <div class="wrap_input">
+                            <div class="clear_value"></div>
+                            <input type="text" id="link_gallery_bg" class="data_input"
+                                placeholder=" Изображения для фона..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div id="select_block">
+                        <select id="background_change_in_time">
+                            <option value="0">Никогда</option>
+                            <option value="s15">15 секунд</option>
+                            <option value="s30">30 секунд</option>
+                            <option value="m1">1 минута</option>
+                            <option value="m3">3 минуты</option>
+                            <option value="m5">5 минут</option>
+                        </select>
+                        <p>Смена фона по времени</p>
+                    </div>
+
+                    <div id="image_gallery"></div>
+                </div>
+
+                <div id="sett_3" class="block_content">
+                    <div id="block_google-drive" class="block_content_save">
+                        <p>Сохранить / Загрузить на Google Drive</p>
+                        <div id="block_btn_google-drive">
+                            <button id="authorize_button"></button>
+                            <!-- <button id="save_disk">Сохранить закладки</button>
+                        <button id="download_disk">Восстановить закладки и настройки</button>
+                        <button id="signout_button">Выйти из аккаунта Google</button>
+                        <p id="sinxCheck">Синхронизировать закладки при заходе на сайт <input type="checkbox"
+                                id="checkbox_sinx"></p> -->
+                            <button id="save_disk" style="display: none;">Сохранить закладки</button>
+                            <button id="download_disk" style="display: none;">Восстановить закладки и настройки</button>
+                            <button id="signout_button" style="display: none;">Выйти из аккаунта Google</button>
+                            <p id="sinxCheck">Синхронизировать закладки при заходе на сайт <input type="checkbox"
+                                    id="checkbox_sinx"></p>
+                        </div>
+                        <!-- <div id="block_info_save">
+                        <div id="preloaded_save"></div>
+                        <p id="info_save"></p>
+                    </div> -->
+                    </div>
+
+                    <div id="wrap_block_save" class="block_content_save">
+                        <p>Сохранить / Загрузить на ваше устройства</p>
+                        <div id="block_pc_save">
+                            <a href="#" id="download_save" class="save_block"></a>
+                            <label for="upload_save" class="save_block" id="lab_upload_save"></label>
+                            <input type="file" id="upload_save" accept=".bookmarks" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="block_info_save">
+        <div id="preloaded_save"></div>
+        <p id="info_save"></p>
+    </div>
+
+    <script src="./js/main.js?ver=15.4"></script>
+    <script src="./js/setting.js?ver=2"></script>
+    <script src="./js/google_drive.js?ver=17.5"></script>
+
+    <!-- <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script> -->
+    <!-- <script async defer src="./plugins/googleApi.js" onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script> -->
+
+</body>
+
+</html>

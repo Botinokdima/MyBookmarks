@@ -1,0 +1,221 @@
+@media screen and (max-width:480px) {
+/* === ru: Окно приветсвие en: Welcome window === */
+    #welcome_popup{
+        width: 90vw;
+        height: 85vh;
+    }
+    /* === ru: Контекстное меню en: Context menu === */
+    .popup_form {
+        width: 95%;
+    }
+    /* === ru: Попап(всплывающие окна) en: Popap */
+    #select_groups_block p {
+        /* font-weight: normal; */
+        font-size: 14px;
+    }
+    /* ===Меню групп===\\ //=== ru: Меню групп en: Group menu === */
+    #groups {
+        flex-direction: column;
+        background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    }
+    #groups.active {
+        padding: 20px 20px 50px;
+        height: 100vh;
+    }
+    #left_block, #right_block {
+        flex-direction: column;
+        width: inherit;
+        align-items: stretch;
+    }
+    #block_add_groups {
+        height: auto;
+        border: none;
+    }
+    #value_groups, #bookmark_search {
+        width: 100%;
+        padding: 0 5px;
+        margin: 5px 0;
+    }
+    /* #add_groups {
+        width: 22px;
+        height: 22px;
+        transform: scaleX(-1) translateY(-5PX);
+        margin-left: -30px;
+        background: url(../graphics/add_groups.png) no-repeat center /cover;
+        visibility: hidden;
+    } */
+    #toggle_input_groups, #toggle_input_search {
+        display: none;
+    }
+    #wrap_search {
+        /* border: 1px solid rgb(255, 255, 255); */
+        flex-wrap: wrap;
+        height: 15px;
+        overflow: hidden;
+        transition: all .40s linear;
+    }
+    #wrap_search.active {
+        height: 95px;
+    }
+    #toogle_wrap_search {
+        display: block;
+        margin: auto;
+    }
+    .search_result, #search_result {
+        display: inline-block;
+    }
+    .toogle_result {
+        margin-left: 50px;
+    }
+    .toogle_result:hover {
+        color: red;
+    }
+    .search_result {
+        color: #fff;
+        padding-left: 5px;
+        font-family: 'Supermercado One', cursive;
+    }
+    #menu_groups {
+        flex-direction: column;
+        max-width: 100%;
+        height: auto;
+        max-height: 60vh;
+        overflow-y: auto;
+        margin: 10px 0;
+    }
+    #menu_groups li {
+        font: bold 15px/40px 'Lucida sans', Arial, Helvetica;
+        height: 40px;
+        max-width: inherit;
+        border-bottom: 1px solid #000;
+    }
+    .del_groups {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #burger_setting, #right_block {
+        display: none;
+    }
+    /* === ru: В мобильной версии нижний блок управление en: In the mobile version, the lower control unit === */
+    #footer_mobile {
+        display: flex;
+    }
+    /* === ru: Кнопки en: Buttons === */
+    #add_bookmark {
+        display: none !important;
+    }
+    /* === ru: Закладка en: Bookmark === */
+    .addLink {
+        width: calc((100% - 40px) / 4) !important;
+        min-height: 80px;
+        margin: 5px !important;
+    }
+    .addLink.preloaded::after {
+        height: 7px;
+        width: 50px;
+    }
+    .btnDelete {
+        bottom: 5px;
+        width: 25px;
+        height: 25px;
+    }
+    .btnEditing {
+        width: 20px;
+        height: 20px;
+        right: 7px;
+    }
+    .addLink:hover .btnEditing {
+        top: 5px;
+    }
+    .nameLink {
+        font-size: 11px;
+        padding: 0;
+        font-family: 'Supermercado One', cursive;
+        letter-spacing: 0;
+    }
+    /* === ru: Настройки en: Setting === */
+    #setting {
+        width: 100vw !important;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: none;
+        /* background-image: linear-gradient(to top, #00ee2d, #00e06f, #00cf93, #00bda7, #28a8a8); */
+        background: #FF8008;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #FFC837, #FF8008);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #FFC837, #FF8008);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        /* min-height: -webkit-fill-available; */
+    }
+    #setting .close_popup {
+        display: none;
+    }
+    #choice_of_settings {
+        height: auto;
+        background-color: #fff;
+        box-shadow: inset 0px 0px 40px -6px rgba(0, 0, 0, 0.75);
+    }
+    #choice_of_settings li {
+        width: 150px;
+        height: 40px;
+        font-size: 14px;
+        border-radius: 0px;
+        text-align: center;
+        white-space: nowrap;
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+        text-shadow: none;
+    }
+    #settings_window {
+        height: calc(100vh - 90px);
+        margin-top: 0;
+    }
+    #sett_1 ul>li {
+        font-size: 17px;
+        letter-spacing: 1;
+        color: black;
+    }
+    #quantity_block, #distance_block, #radius_block, #fix_menuGroups {
+        display: none;
+    }
+    #block_info_save {
+        bottom: 60px;
+        background: rgba(219, 19, 19, .7);
+        padding: 0 10px
+    }
+    .save_block {
+        width: 120px;
+        height: 120px;
+        margin: 10px;
+    }
+    #download_save::before, #lab_upload_save::before {
+        font-size: 13px;
+        font-weight: normal;
+        top: 100%;
+        letter-spacing: normal;
+        display: block;
+    }
+}
+
+@media screen and (min-width:800px) and (max-width:1024px) {
+    #add_bookmark {
+        min-height: 130px;
+    }
+    .addLink {
+        min-height: 130px;
+    }
+}
+
+@media screen and (min-width:480px) and (max-width:800px) {
+    #add_bookmark {
+        min-height: 100px;
+    }
+    .addLink {
+        padding: 5px;
+        min-height: 100px;
+    }
+}
