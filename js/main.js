@@ -1099,16 +1099,16 @@ welcomePopupBackground.addEventListener('click', () => {
 })
 
 
-let script = document.createElement('script');
-script.src = "https://apis.google.com/js/api.js";
+// let script = document.createElement('script');
+// script.src = "https://apis.google.com/js/api.js";
 
-document.body.append(script);
-script.onload = ()=>{
-    handleClientLoad()
-}
+// document.body.append(script);
+// script.onload = ()=>{
+//     handleClientLoad()
+// }
 
 
 
-script.onreadystatechange = ()=>{
-    if (this.readyState === 'complete') this.onload()
-}
+// script.onreadystatechange = ()=>{
+//     if (this.readyState === 'complete') this.onload()
+// }
