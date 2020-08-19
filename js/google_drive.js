@@ -81,11 +81,11 @@ function updateSigninStatus(isSignedIn) {
         signoutButtonGoogle.style.background = `url(${gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile().getImageUrl()}) no-repeat center/contain`;
         if (!getLocal('_googleDriveSinx')) {
             bookmarkSyncStatus.style.display = 'block';
-            bookmarkSyncStatus.style.background = 'url(../graphics/sync_dis.png) no-repeat center/cover';
+            bookmarkSyncStatus.style.background = 'url(./graphics/sync_dis.png) no-repeat center/cover';
         }
         else {
             bookmarkSyncStatus.style.display = 'block';
-            bookmarkSyncStatus.style.background = 'url(../graphics/sync.png) no-repeat center/cover';
+            bookmarkSyncStatus.style.background = 'url(./graphics/sync.png) no-repeat center/cover';
         }
         for (let i = 1; i < btnGoogleDrive.length; i++)if (btnGoogleDrive[i].id != 'download_disk') btnGoogleDrive[i].style.display = 'block';
 
