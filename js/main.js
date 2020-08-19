@@ -330,7 +330,7 @@ function addLogo(site) {
         site = site.match(/[A-Z0-9][A-Z0-9_-]*(\.[A-Z0-9][A-Z0-9_-]*)+/i);
         return `https://logo.clearbit.com/${site[0]}?size=300`;
     } catch (error) {
-        return `../graphics/google_logo.png`;
+        return `./graphics/google_logo.png`;
         //return `https://logo.clearbit.com/www.google.com?size=300`;
     }
 }
