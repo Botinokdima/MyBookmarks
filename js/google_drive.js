@@ -17,12 +17,12 @@ checkboxSinx.addEventListener('change', () => {
     if (checkboxSinx.checked) {
         saveLocal('_googleDriveSinx', true);
         bookmarkSyncStatus.style.display = 'block';
-        bookmarkSyncStatus.style.background = 'url(../graphics/sync.png) no-repeat center/cover';
+        bookmarkSyncStatus.style.background = 'url(./graphics/sync.png) no-repeat center/cover';
     }
     else {
         saveLocal('_googleDriveSinx', false);
         bookmarkSyncStatus.style.display = 'block';
-        bookmarkSyncStatus.style.background = 'url(../graphics/sync_dis.png) no-repeat center/cover';
+        bookmarkSyncStatus.style.background = 'url(./graphics/sync_dis.png) no-repeat center/cover';
     }
 })
 
