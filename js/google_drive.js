@@ -29,6 +29,7 @@ checkboxSinx.addEventListener('change', () => {
 let clearDownloadDisk;
 bookmarkSyncStatus.addEventListener('click', saveGoogleDrive);
 bookmarkSyncStatus.addEventListener('mousedown', () => {
+    bookmarkSyncStatus.classList.add('save');
     bookmarkSyncStatus.addEventListener('mouseup', () => {
         clearTimeout(clearDownloadDisk);
     })

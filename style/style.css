@@ -499,6 +499,7 @@ ul {
     width: 20px;
     height: 20px;
     margin-left: 15px;
+    cursor: pointer;
     /* display: none; */
 }
 
@@ -508,7 +509,7 @@ ul {
 
 @keyframes saveGoogleDrive {
     100% {
-        transform: rotate(-360deg);
+        transform: rotate(360deg);
     }
 }
 
