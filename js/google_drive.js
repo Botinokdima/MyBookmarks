@@ -32,6 +32,7 @@ bookmarkSyncStatus.addEventListener('mousedown', () => {
     bookmarkSyncStatus.classList.add('save');
     bookmarkSyncStatus.addEventListener('mouseup', () => {
         clearTimeout(clearDownloadDisk);
+        bookmarkSyncStatus.classList.remove('save');
     })
     clearDownloadDisk = setTimeout(() => {
         reboot = true;

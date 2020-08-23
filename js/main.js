@@ -9,8 +9,8 @@ let nextWelcomePopup = document.getElementById('next_welcome_popup');
 let blockImg = document.querySelectorAll('.block_img');
 
 
-welcomePopup.addEventListener('scroll',()=>{
-    if(welcomePopup.scrollHeight - welcomePopup.scrollTop == welcomePopup.clientHeight) closeWelcomePopup.style.display = 'block';
+welcomePopup.addEventListener('scroll', () => {
+    if (welcomePopup.scrollHeight - welcomePopup.scrollTop == welcomePopup.clientHeight) closeWelcomePopup.style.display = 'block';
 })
 
 let popupBackground = document.querySelectorAll('.popup_background');
@@ -63,7 +63,7 @@ toogleWrapSearch.addEventListener('click', () => {
 })
 let toggleInputSearch = document.getElementById('toggle_input_search');
 let searchResult = document.getElementById('search_result');
- let menuGroups = document.getElementById('menu_groups')
+let menuGroups = document.getElementById('menu_groups')
 // menuGroups.style.maxWidth = window.innerWidth - 410 + 'px'
 
 let arrow = document.getElementById('arrow');
@@ -153,12 +153,12 @@ window.addEventListener('load', function () {
     };
 
 
-    if(objSetting.welcome){
+    if (objSetting.welcome) {
         setTimeout(() => {
             welcomePopupBackground.style.display = 'block';
         }, 3000);
     }
-    else{
+    else {
         welcomePopupBackground.style.display = 'none';
     }
 
@@ -208,10 +208,10 @@ window.addEventListener('load', function () {
         bookmarksWindow.style.paddingBottom = "50px";
         checkMenuGroups.checked = false;
 
-        for (const [index,elem] of blockImg.entries()) {
-            elem.innerHTML = `<img src="./graphics/teaching img/mpage_${index+1}.jpg" alt="page_${index+1}.jpg">`;
+        for (const [index, elem] of blockImg.entries()) {
+            elem.innerHTML = `<img src="./graphics/teaching img/mpage_${index + 1}.jpg" alt="page_${index + 1}.jpg">`;
         }
-       
+
         menuGroups.addEventListener('click', () => {
             if (event.target.closest('li')) {
                 groups.classList.toggle('active');
@@ -540,6 +540,8 @@ function addGroups() {
 //=== ru: Нажатие по группам en: Group Click ===\\
 menuGroups.addEventListener('click', function () {
     if (event.target.closest('li')) {
+        bookmarkSearch.classList.remove('active');
+        bookmarkSearch.value = '';
         menuGroups.querySelector('li.active').classList.remove('active');
         event.target.closest('li').classList.add('active');
         createBlock(getLocal(event.target.closest('li').dataset.groupNumber));
@@ -619,8 +621,10 @@ function createBlock(data) {
         }, 5000);
 
         blockLink.addEventListener('drop', () => {
-            repointElem(bookmarksWindow.querySelectorAll('.addLink'));
-            findElem();
+            if (bookmarkSearch.value == '') {
+                repointElem(bookmarksWindow.querySelectorAll('.addLink'));
+                findElem();
+            }
         })
 
         blockLink.addEventListener('mouseenter', () => objSetting.sound ? hoverSound('./sound/sound.mp3') : false)
@@ -1011,6 +1015,7 @@ bookmarkSearch.addEventListener('input', () => {
                         arrSearch.push(strToArr[j]);
                         searchResult.innerHTML = arrSearch.length;
                         createBlock(arrSearch);
+                        positinDefaultBtnAdd(addBookmark);
                         for (const elem of document.querySelectorAll('.btnEditing ')) {
                             elem.style.display = 'none';
                         }
@@ -1055,7 +1060,6 @@ function changeSelectGroups(th, data) {
         }
     }
 }
-
 
 document.getElementById('error_correction').addEventListener('click', errorCorrection);
 
