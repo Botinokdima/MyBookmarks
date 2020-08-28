@@ -530,23 +530,23 @@ ul {
     font-size: 30px;
     color: red;
     background-color: rgb(255, 255, 255);
-    display: none;
+    /* display: none; */
     box-shadow: inset 0px 0px 40px -6px rgba(0, 0, 0, 0.75);
     justify-content: space-around;
     align-items: center;
-    height: 50px;
+    height: 0px;
     width: 100%;
     position: fixed;
     bottom: 0;
     left: 0;
-    transition: all .3s linear;
+    
     z-index: 1001;
 }
 
-#footer_mobile.active {
+/* #footer_mobile.active {
     height: 0;
     overflow: hidden;
-}
+} */
 
 #view_mode, #wrap_btn_add {
     display: flex;
@@ -995,7 +995,7 @@ ul {
     height: 50px;
     border-radius: 5px;
     border: none;
-    background: url(../graphics/google.png) no-repeat center/contain;
+    background: url(../graphics/btn_google_signin.png) no-repeat center/contain;
     margin: auto;
 }
 

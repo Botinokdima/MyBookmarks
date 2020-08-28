@@ -1,6 +1,6 @@
 @media screen and (max-width:480px) {
-/* === ru: Окно приветсвие en: Welcome window === */
-    #welcome_popup{
+    /* === ru: Окно приветсвие en: Welcome window === */
+    #welcome_popup {
         width: 90vw;
         height: 85vh;
     }
@@ -99,7 +99,15 @@
     /* === ru: В мобильной версии нижний блок управление en: In the mobile version, the lower control unit === */
     #footer_mobile {
         display: flex;
+        height: 50px;
+        transition: height .40s linear;
+        /* animation: test .40s linear forwards; */
     }
+    /* @keyframes test{
+        100%{
+            height: 50px;
+        }
+    } */
     /* === ru: Кнопки en: Buttons === */
     #add_bookmark {
         display: none !important;
