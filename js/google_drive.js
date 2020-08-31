@@ -10,7 +10,7 @@ let infoSave = document.getElementById('info_save');
 let checkboxSinx = document.getElementById('checkbox_sinx');
 let btnGoogleDrive = document.getElementById('block_btn_google-drive').children;
 
-let reboot = false
+let reboot = false;
 
 //=== ru: Синхронизаця при заходе на страницу en: Synchronization when entering the page ===\\
 checkboxSinx.addEventListener('change', () => {
@@ -261,5 +261,3 @@ function findElem2(funcEval) {
         };
     });
 }
-
-

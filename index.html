@@ -9,12 +9,14 @@
     <meta property="og:site_name" content="My bookmarks">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style/style.css?ver=9.9">
-    <link rel="stylesheet" href="./style/media.css?ver=4.9">
+    <link rel="stylesheet" href="./style/style.css?ver=10.0">
+    <link rel="stylesheet" href="./style/media.css?ver=5.0">
     <title>My bookmarks</title>
     <link rel="icon" href="ico.ico" type="image/x-icon">
     <link rel="shortcut icon" href="ico.ico" type="image/x-icon">
 
+    <!-- https://animate.style/ -->
+    <link rel="stylesheet" href="./plugins/animate.css" />
     <!-- kit.fontawesome -->
     <script src="./plugins/kit.fontawesome.js"></script>
     <!-- drag-on-drop -->
@@ -74,7 +76,7 @@
 
     <!-- === ru: Попап(всплывающие окна) en: Popap === -->
     <div class="popup_background">
-        <div class="popup_form" id="add_site_form">
+        <div class="popup_form animate__animated animate__bounceInDown" id="add_site_form">
             <div class="close_popup"></div>
             <div class="form_input">
 
@@ -96,7 +98,7 @@
     </div>
 
     <div class="popup_background">
-        <div class="popup_form" id="edit_form">
+        <div class="popup_form animate__animated animate__bounceInDown" id="edit_form">
             <div class="close_popup"></div>
             <div class="form_input">
 
@@ -193,7 +195,7 @@
     </div>
 
     <!-- === ru: В мобильной версии нижний блок управление en: In the mobile version, the lower control unit === -->
-    <div id="footer_mobile">
+    <div id="footer_mobile" class="animate__animated animate__backInUp">
 
         <div id="view_mode">
             <div id="media_btn_large" data-view="large"><i class="fa fa-th-large" aria-hidden="true"></i></div>
@@ -225,7 +227,7 @@
 
     <!-- === ru: Настройки en: Setting === -->
     <div class="popup_background">
-        <div id="setting">
+        <div id="setting" class="animate__animated animate__fadeIn">
 
             <div class="close_popup"></div>
 
@@ -402,14 +404,14 @@
         <p id="info_save"></p>
     </div>
 
-    <script src="./js/main.js?ver=15.6"></script>
+    <script src="./js/main.js?ver=15.7"></script>
     <script src="./js/setting.js?ver=2"></script>
-    <script src="./js/google_drive.js?ver=17.8"></script>
+    <script src="./js/google_drive.js?ver=18.0"></script>
 
-<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
         </script>
-   
+
 
 </body>
 

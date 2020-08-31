@@ -443,6 +443,7 @@ function hoverSound(audio) {
 
 //=== ru: Активацыя формы ввода en: Active entry forms ===\\
 addBookmark.addEventListener('click', funcAddBookmark);
+mediaBtnAdd.addEventListener('click', () => popupBackground[3].classList.remove('active'));
 mediaBtnAdd.addEventListener('click', funcAddBookmark);
 window.addEventListener('keydown', e => {
     if (e.altKey && e.keyCode == 78) {
@@ -573,6 +574,10 @@ for (const elem of groupNavigationArrow) {
         }
 
         if (elem.id == 'navigation_left') {
+            // bookmarksWindow.className = 'animate__animated animate__fadeInRightBig';
+            // bookmarksWindow.addEventListener("animationend", function () {
+            //     bookmarksWindow.className = ''
+            // })
             navGroup--;
             if (navGroup < 0) navGroup = --menuGroups.children.length;
 

@@ -25,6 +25,7 @@ ul {
 }
 
 /* === ru: Окно приветсвие en: Welcome window === */
+
 #welcome_popup_background {
     width: 100vw;
     height: 100vh;
@@ -155,9 +156,8 @@ ul {
     height: 400px;
     padding: 40px 0;
     position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: calc(100vw / 2 - 200px);
+    top: calc(100vh / 2 - 200px);
     z-index: 1000;
     transition: all 1s linear;
 }
@@ -530,23 +530,17 @@ ul {
     font-size: 30px;
     color: red;
     background-color: rgb(255, 255, 255);
-    /* display: none; */
+    display: none;
     box-shadow: inset 0px 0px 40px -6px rgba(0, 0, 0, 0.75);
     justify-content: space-around;
     align-items: center;
-    height: 0px;
+    height: 50px;
     width: 100%;
     position: fixed;
     bottom: 0;
     left: 0;
-    
     z-index: 1001;
 }
-
-/* #footer_mobile.active {
-    height: 0;
-    overflow: hidden;
-} */
 
 #view_mode, #wrap_btn_add {
     display: flex;
@@ -599,7 +593,6 @@ ul {
     justify-content: center;
     font-size: 30px;
     padding: 5px;
-    background-color: crimson;
     display: none;
     top: 50%;
     background: url(../graphics/next_naw_groups.png) no-repeat center /contain;
@@ -754,9 +747,8 @@ ul {
     display: flex;
     flex-direction: column;
     position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: calc(100vw / 2 - 300px);
+    top: calc(100vh / 2 - 300px);
     transition: all .30s linear;
     background: url(../graphics/bg_setting.jpg) no-repeat 0 0/cover;
     z-index: 1;
