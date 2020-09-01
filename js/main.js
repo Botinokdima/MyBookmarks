@@ -9,10 +9,6 @@ let nextWelcomePopup = document.getElementById('next_welcome_popup');
 let blockImg = document.querySelectorAll('.block_img');
 
 
-welcomePopup.addEventListener('scroll', () => {
-    if (welcomePopup.scrollHeight - welcomePopup.scrollTop == welcomePopup.clientHeight) closeWelcomePopup.style.display = 'block';
-})
-
 let popupBackground = document.querySelectorAll('.popup_background');
 //=== ru: Контекстное меню en: Context menu ===\\
 let contextMenu = document.getElementById('window_menu');
@@ -51,9 +47,8 @@ let toogleWrapSearch = document.getElementById('toogle_wrap_search');
 toogleWrapSearch.addEventListener('click', () => {
     wrapSearch.classList.toggle('active');
     if (wrapSearch.classList.contains('active')) {
-        bookmarkSearch.focus();
         menuGroups.style.maxHeight = '50vh';
-        toogleWrapSearch.innerHTML = '<i class="fa fa-caret-up" aria-hidden="true"></i>';
+        toogleWrapSearch.innerHTML = '<i class="fa fa-caret-up" aria-hidden="true"></i>';  
     }
     else {
         menuGroups.style.maxHeight = '';
@@ -61,6 +56,7 @@ toogleWrapSearch.addEventListener('click', () => {
         bookmarkSearch.value = '';
     }
 })
+
 let toggleInputSearch = document.getElementById('toggle_input_search');
 let searchResult = document.getElementById('search_result');
 let menuGroups = document.getElementById('menu_groups')
@@ -119,7 +115,7 @@ window.addEventListener('load', function () {
     groups.style.cssText = 'top: 0;left: 0;width:100%;';
 
     if (!getLocal('_localStorage_bg')) {
-        body.style.background = `url(./bg/bg_36.jpg) no-repeat fixed center/cover`
+        body.style.background = `url(./bg/bg_18.jpg) no-repeat fixed center/cover`
     } else body.style.background = `url(${getLocal('_localStorage_bg')}) no-repeat fixed center/cover`;
 
     !getLocal('_localStorage_setting') ? objSetting = {
@@ -552,7 +548,6 @@ menuGroups.addEventListener('click', function () {
 
 toggleInputSearch.addEventListener('click', () => {
     bookmarkSearch.classList.toggle('active');
-    bookmarkSearch.value = '';
     bookmarkSearch.classList.contains('active') ? bookmarkSearch.focus() : bookmarkSearch.blur();
 })
 

@@ -1,12 +1,13 @@
 @media screen and (max-width:480px) {
     /* === ru: Окно приветсвие en: Welcome window === */
-    #welcome_popup {
+    #wrap_welcome_popup {
         width: 90vw;
         height: 85vh;
     }
     /* === ru: Контекстное меню en: Context menu === */
     .popup_form {
         width: 95%;
+        height: auto;
         left: calc(100vw / 2 - (95% / 2));
         top: calc(100vh / 2 - 200px);
     }
@@ -50,7 +51,6 @@
         display: none;
     }
     #wrap_search {
-        /* border: 1px solid rgb(255, 255, 255); */
         flex-wrap: wrap;
         height: 15px;
         overflow: hidden;

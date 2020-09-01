@@ -9,8 +9,8 @@
     <meta property="og:site_name" content="My bookmarks">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style/style.css?ver=10.0">
-    <link rel="stylesheet" href="./style/media.css?ver=5.0">
+    <link rel="stylesheet" href="./style/style.css?ver=10.1">
+    <link rel="stylesheet" href="./style/media.css?ver=5.1">
     <title>My bookmarks</title>
     <link rel="icon" href="ico.ico" type="image/x-icon">
     <link rel="shortcut icon" href="ico.ico" type="image/x-icon">
@@ -27,41 +27,43 @@
 <body>
     <!-- === ru: Окно приветсвие en: Welcome window === -->
     <div id="welcome_popup_background">
-        <div id="welcome_popup">
-            <div class="welcome_content">
-                <h1>Добро пожаловать на сайт закладок</h1>
-                <p>Пройдите быстрое обучение</p>
-            </div>
-            <div class="welcome_content">
-                <p>Как добавить закладку</p>
-                <div class="block_img">
-                    <img src="./graphics/teaching img/page_1.jpg" alt="page_1.jpg">
-                </div>
-            </div>
-            <div class="welcome_content">
-                <p>Редактирование и удаление закладки</p>
-                <div class="block_img">
-                    <img src="./graphics/teaching img/page_2.jpg" alt="page_2.jpg">
-                </div>
-            </div>
-            <div class="welcome_content">
-                <p>Создание группы и поиск по закладкам</p>
-                <div class="block_img">
-                    <img src="./graphics/teaching img/page_3.jpg" alt="page_3.jpg">
-                </div>
-            </div>
-            <div class="welcome_content">
-                <p>Редактирование группы двойной клик или правой кнопкой мыши</p>
-                <div class="block_img">
-                    <img src="./graphics/teaching img/page_4.jpg" alt="page_4.jpg">
-                </div>
-            </div>
-            <div class="welcome_content">
-                <p>Настройки , так же можно открыть правой кнопкой мыши</p>
-                <div class="block_img">
-                    <img src="./graphics/teaching img/page_5.jpg" alt="page_5.jpg">
-                </div>
+        <div id="wrap_welcome_popup">
+            <div id="welcome_popup">
                 <button id="close_welcome_popup"></button>
+                <div class="welcome_content">
+                    <h1>Добро пожаловать на сайт закладок</h1>
+                    <p>Пройдите быстрое обучение!</p>
+                </div>
+                <div class="welcome_content">
+                    <p>Как добавить закладку</p>
+                    <div class="block_img">
+                        <img src="./graphics/teaching img/page_1.jpg" alt="page_1.jpg">
+                    </div>
+                </div>
+                <div class="welcome_content">
+                    <p>Редактирование и удаление закладки</p>
+                    <div class="block_img">
+                        <img src="./graphics/teaching img/page_2.jpg" alt="page_2.jpg">
+                    </div>
+                </div>
+                <div class="welcome_content">
+                    <p>Создание группы и поиск по закладкам</p>
+                    <div class="block_img">
+                        <img src="./graphics/teaching img/page_3.jpg" alt="page_3.jpg">
+                    </div>
+                </div>
+                <div class="welcome_content">
+                    <p>Редактирование группы двойной клик или правой кнопкой мыши</p>
+                    <div class="block_img">
+                        <img src="./graphics/teaching img/page_4.jpg" alt="page_4.jpg">
+                    </div>
+                </div>
+                <div class="welcome_content">
+                    <p>Настройки , так же можно открыть правой кнопкой мыши</p>
+                    <div class="block_img">
+                        <img src="./graphics/teaching img/page_5.jpg" alt="page_5.jpg">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -76,7 +78,7 @@
 
     <!-- === ru: Попап(всплывающие окна) en: Popap === -->
     <div class="popup_background">
-        <div class="popup_form animate__animated animate__bounceInDown" id="add_site_form">
+        <div class="popup_form animate__animated animate__zoomInDown" id="add_site_form">
             <div class="close_popup"></div>
             <div class="form_input">
 
@@ -195,7 +197,7 @@
     </div>
 
     <!-- === ru: В мобильной версии нижний блок управление en: In the mobile version, the lower control unit === -->
-    <div id="footer_mobile" class="animate__animated animate__backInUp">
+    <div id="footer_mobile" class="animate__animated animate__backInUp animate__delay-1s">
 
         <div id="view_mode">
             <div id="media_btn_large" data-view="large"><i class="fa fa-th-large" aria-hidden="true"></i></div>
@@ -404,7 +406,7 @@
         <p id="info_save"></p>
     </div>
 
-    <script src="./js/main.js?ver=15.7"></script>
+    <script src="./js/main.js?ver=15.8"></script>
     <script src="./js/setting.js?ver=2"></script>
     <script src="./js/google_drive.js?ver=18.0"></script>
 

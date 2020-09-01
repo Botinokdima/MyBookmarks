@@ -36,7 +36,7 @@ ul {
     z-index: 1000000000;
 }
 
-#welcome_popup {
+#wrap_welcome_popup {
     text-align: center;
     position: fixed;
     left: 50%;
@@ -44,9 +44,15 @@ ul {
     transform: translate(-50%, -50%);
     width: 40vw;
     height: 80vh;
+    overflow: hidden;
+    background: url(../graphics/paper.png) no-repeat center/cover;
+}
+
+#welcome_popup {
+    width: inherit;
+    height: inherit;
     overflow-x: hidden;
     overflow-y: auto;
-    background: url(../graphics/paper.png) no-repeat center/cover;
 }
 
 .welcome_content {
@@ -61,6 +67,38 @@ ul {
     color: #000099;
 }
 
+.welcome_content:not(:last-child):after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 10%;
+    background: #000099;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+.welcome_content:not(:last-child):before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 10px 0 10px;
+    border-color: #000099 transparent transparent transparent;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+.welcome_content:nth-child(2)::after {
+    bottom: 50px;
+}
+
+.welcome_content:nth-child(2)::before {
+    bottom: 40px;
+}
+
 .welcome_content p {
     font-size: 18px;
 }
@@ -68,23 +106,33 @@ ul {
 .block_img {
     width: 85%;
     margin-bottom: 30px;
+    border: 3px dashed #000099;
+    padding: 10px;
 }
 
 .block_img img {
     width: 100%;
+    height: 100%;
 }
 
 #close_welcome_popup {
     outline: none;
-    border: none;
+    border: 2px solid rgb(236, 55, 55);
+    border-radius: 100%;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 10px;
-    width: 30px;
-    height: 30px;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
     background: url(../graphics/close_welcome_hover.png) no-repeat center /cover;
-    display: none;
+    z-index: 1;
+    transition: all .40s linear;
+}
+
+#close_welcome_popup:hover {
+    cursor: pointer;
+    box-shadow: 0 0 4px #000;
+    transform: scale(1.3);
 }
 
 /* === ru: Контекстное меню en: Context menu === */
@@ -186,7 +234,7 @@ ul {
 }
 
 #edit_form {
-    background: url(../graphics/editBg.jpg) no-repeat center/cover;
+    background: url(../graphics/screw-4929711_640.jpg) no-repeat center/cover;
 }
 
 .wrap_input {
