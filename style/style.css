@@ -234,7 +234,7 @@ ul {
 }
 
 #edit_form {
-    background: url(../graphics/screw-4929711_640.jpg) no-repeat center/cover;
+    background: url(../graphics/editBg.jpg) no-repeat center/cover;
 }
 
 .wrap_input {
@@ -1099,4 +1099,62 @@ ul {
 
 #lab_upload_save:hover::before {
     display: block;
+}
+
+
+/* === ru: Кастомный checkbox en: Custom checkbox === */
+.custom-checkbox {
+	position: relative;
+	cursor: pointer;
+	line-height: 24px;
+}
+.custom-checkbox input {
+	position: absolute;
+	left: -9999px;
+}
+.custom-checkbox-button {
+	display: inline-block;
+	margin: 0 15px;
+	width: 50px;
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.5);
+	height: 24px;
+	position: relative;
+	bottom: -4px;
+	cursor: pointer;
+}
+.custom-checkbox-button:before {
+	background: #fff;
+	content: "";
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	-webkit-box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
+	        box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
+	-webkit-transition: 0.2s;
+	        transition: 0.2s;
+}
+.custom-checkbox-button:after {
+	content: "";
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	background: #707070;
+	border-radius: 50%;
+	top: 6px;
+	left: 6px;
+	-webkit-box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
+	        box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
+	-webkit-transition: 0.2s;
+	        transition: 0.2s;
+}
+.custom-checkbox.checked .custom-checkbox-button:before {
+	left: 25px;
+}
+.custom-checkbox.checked .custom-checkbox-button:after {
+	left: 32px;
+	background: #1967c3;
 }

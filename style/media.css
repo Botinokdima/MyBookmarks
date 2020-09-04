@@ -7,7 +7,7 @@
     /* === ru: Контекстное меню en: Context menu === */
     .popup_form {
         width: 95%;
-        height: auto;
+        /* height: auto; */
         left: calc(100vw / 2 - (95% / 2));
         top: calc(100vh / 2 - 200px);
     }

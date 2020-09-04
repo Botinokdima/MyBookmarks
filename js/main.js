@@ -48,7 +48,7 @@ toogleWrapSearch.addEventListener('click', () => {
     wrapSearch.classList.toggle('active');
     if (wrapSearch.classList.contains('active')) {
         menuGroups.style.maxHeight = '50vh';
-        toogleWrapSearch.innerHTML = '<i class="fa fa-caret-up" aria-hidden="true"></i>';  
+        toogleWrapSearch.innerHTML = '<i class="fa fa-caret-up" aria-hidden="true"></i>';
     }
     else {
         menuGroups.style.maxHeight = '';
@@ -110,6 +110,7 @@ let uploadSave = document.getElementById('upload_save');
 
 //=== ru: Настройки и переменные по умолчанию en: Default Settings and Variables ===\\
 window.addEventListener('load', function () {
+
 
     addBookmark.style.cssText = 'border: 2px dashed rgb(252, 250, 250);';
     groups.style.cssText = 'top: 0;left: 0;width:100%;';
@@ -194,6 +195,13 @@ window.addEventListener('load', function () {
             bookmarksWindow.style.paddingRight = '';
             checkNawGroups.checked = false;
         }
+    }
+
+    //=== ru: Кастомный checkbox en: Custom checkbox ===\\
+    for (const elem of document.querySelectorAll('.custom-checkbox')) {
+        elem.insertAdjacentHTML('afterBegin', '<span class="custom-checkbox-button"></span>');
+        if (elem.children[1].checked) elem.classList.add('checked');
+        elem.addEventListener('change', () => elem.children[1].closest('.custom-checkbox').classList.toggle('checked'));
     }
 
     //=== ru: Мобильная версия en: mobile version ===\\ 
@@ -546,9 +554,21 @@ menuGroups.addEventListener('click', function () {
     }
 })
 
+menuGroups.addEventListener('mouseover', () => {
+    if (event.target.closest('li')) {
+        event.target.closest('li').setAttribute('title', event.target.textContent);
+    }
+})
+
 toggleInputSearch.addEventListener('click', () => {
     bookmarkSearch.classList.toggle('active');
-    bookmarkSearch.classList.contains('active') ? bookmarkSearch.focus() : bookmarkSearch.blur();
+    if (bookmarkSearch.classList.contains('active')) {
+        bookmarkSearch.focus();
+    } else {
+        bookmarkSearch.value = '';
+        bookmarkSearch.blur();
+        createBlock(getLocal(menuGroups.querySelector('li.active').dataset.groupNumber));
+    }
 })
 
 //=== ru: Навигацыя по группам en: Navigation groups ===\\
@@ -558,6 +578,9 @@ for (const elem of groupNavigationArrow) {
         for (const [i, elem2] of [...menuGroups.children].entries()) {
             if (elem2.classList.contains('active')) navGroup = i;
         }
+
+        bookmarkSearch.classList.remove('active');
+        bookmarkSearch.value = '';
 
         if (elem.id == 'navigation_right') {
             navGroup++
@@ -1116,3 +1139,9 @@ welcomePopupBackground.addEventListener('click', () => {
 // script.onreadystatechange = ()=>{
 //     if (this.readyState === 'complete') this.onload()
 // }
+
+
+
+
+
+
