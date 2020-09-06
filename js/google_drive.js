@@ -26,19 +26,19 @@ checkboxSinx.addEventListener('change', () => {
     }
 })
 
-let clearDownloadDisk;
+//let clearDownloadDisk;
 bookmarkSyncStatus.addEventListener('click', saveGoogleDrive);
-bookmarkSyncStatus.addEventListener('mousedown', () => {
-    bookmarkSyncStatus.classList.add('save');
-    bookmarkSyncStatus.addEventListener('mouseup', () => {
-        clearTimeout(clearDownloadDisk);
-        bookmarkSyncStatus.classList.remove('save');
-    })
-    clearDownloadDisk = setTimeout(() => {
-        reboot = true;
-        findElem2('readFile(elem.id)');
-    }, 3000);
-});
+// bookmarkSyncStatus.addEventListener('mousedown', () => {
+//     bookmarkSyncStatus.classList.add('save');
+//     bookmarkSyncStatus.addEventListener('mouseup', () => {
+//         clearTimeout(clearDownloadDisk);
+//         bookmarkSyncStatus.classList.remove('save');
+//     })
+//     clearDownloadDisk = setTimeout(() => {
+//         reboot = true;
+//         findElem2('readFile(elem.id)');
+//     }, 3000);
+// });
 function saveGoogleDrive() {
     bookmarkSyncStatus.removeEventListener('click', saveGoogleDrive);
     bookmarkSyncStatus.classList.add('save');
