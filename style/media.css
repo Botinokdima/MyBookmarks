@@ -181,7 +181,7 @@
         letter-spacing: 1;
         color: black;
     }
-    #quantity_block, #distance_block, #radius_block, #fix_menuGroups {
+    #quantity_block, #distance_block, #fix_menuGroups {
         display: none;
     }
     #block_info_save {
