@@ -1141,7 +1141,7 @@ welcomePopupBackground.addEventListener('click', () => {
 // }
 
 
-
+console.log('hello');
 
 
 
