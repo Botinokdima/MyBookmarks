@@ -1,28 +1,4 @@
 //=== ru: Настройки en: Setting ===\\
-let paragraph = document.querySelectorAll('#choice_of_settings li');
-let block_content = document.querySelectorAll('.block_content');
-for (const elem of paragraph) {
-    elem.addEventListener('click', () => {
-        document.querySelector('#choice_of_settings li.active').classList.remove('active');
-        elem.classList.add('active');
-
-        if (elem.dataset.paragraph == 'sett_1') for (const elem2 of block_content) elem2.style.transform = 'translateX(0)';
-        if (elem.dataset.paragraph == 'sett_2') {
-
-            for (const elem2 of block_content) elem2.style.transform = 'translateX(-100%)';
-
-            for (const block_bg of document.querySelectorAll('.block_bg')) {
-                block_bg.style.width = `calc(100% / ${random()})`;
-
-                if (block_bg.style.backgroundImage == `url("${getLocal('_localStorage_bg')}")`) block_bg.classList.add('active')
-            }
-
-            if (!/.\/bg\/bg_.+/.test(getLocal('_localStorage_bg'))) linkGalleryBg.value = getLocal('_localStorage_bg')
-            addClearInput()
-        }
-        if (elem.dataset.paragraph == 'sett_3') for (const elem2 of block_content) elem2.style.transform = 'translateX(-200%)';
-    })
-}
 
 //=== ru: Основные настройки en: Basic settings ===\\
 
@@ -276,8 +252,8 @@ backgroundTime.addEventListener('change', () => {
 function backgroundСhange() {
     body.style.background = `url(./bg/${addBackground([], 36)[elementImg]}) no-repeat  center/cover`;
     saveLocal('_localStorage_bg', `./bg/${addBackground([], 36)[elementImg]}`);
-    elementImg++
+    elementImg++;
     if (elementImg > addBackground([], 36).length - 1) {
-        elementImg = 0
+        elementImg = 0;
     }
 }

@@ -136,47 +136,21 @@
         letter-spacing: 0;
     }
     /* === ru: Настройки en: Setting === */
-    #setting {
+    .swiper-container {
         width: 100vw !important;
-        height: 100vh;
+        height: calc(100vh - 50px);
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        transform: none;
-        /* background-image: linear-gradient(to top, #00ee2d, #00e06f, #00cf93, #00bda7, #28a8a8); */
         background: #FF8008;
         /* fallback for old browsers */
         background: -webkit-linear-gradient(to right, #FFC837, #FF8008);
         /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #FFC837, #FF8008);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        /* min-height: -webkit-fill-available; */
     }
-    #setting .close_popup {
-        display: none;
-    }
-    #choice_of_settings {
-        height: auto;
-        background-color: #fff;
-        box-shadow: inset 0px 0px 40px -6px rgba(0, 0, 0, 0.75);
-    }
-    #choice_of_settings li {
-        width: 150px;
-        height: 40px;
-        font-size: 14px;
-        border-radius: 0px;
-        text-align: center;
-        white-space: nowrap;
-        color: red;
-        font-family: Arial, Helvetica, sans-serif;
-        text-shadow: none;
-    }
-    #settings_window {
-        height: calc(100vh - 90px);
-        margin-top: 0;
-    }
-    #sett_1 ul>li {
+    .swiper-slide ul>li {
         font-size: 17px;
         letter-spacing: 1;
         color: black;

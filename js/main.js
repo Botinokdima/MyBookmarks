@@ -81,6 +81,7 @@ mediaBtnSetting.addEventListener('click', () => {
     bookmarksWindow.style.display = "";
 })
 
+
 //=== ru: Экран закладок en: Bookmarks Screen ===\\
 let bookmarksWindow = document.getElementById('bookmarks_window');
 let groupNavigationArrow = document.querySelectorAll('.group_navigation_arrow');
@@ -118,6 +119,14 @@ window.addEventListener('load', function () {
     if (!getLocal('_localStorage_bg')) {
         body.style.background = `url(./bg/bg_18.jpg) no-repeat fixed center/cover`
     } else body.style.background = `url(${getLocal('_localStorage_bg')}) no-repeat fixed center/cover`;
+
+    if (!/.\/bg\/bg_.+/.test(getLocal('_localStorage_bg'))) linkGalleryBg.value = getLocal('_localStorage_bg');
+
+    for (const block_bg of document.querySelectorAll('.block_bg')) {
+        block_bg.style.width = `calc(100% / ${random()})`;
+
+        if (block_bg.style.backgroundImage == `url("${getLocal('_localStorage_bg')}")`) block_bg.classList.add('active');
+    }
 
     !getLocal('_localStorage_setting') ? objSetting = {
         welcome: true,
@@ -1139,9 +1148,5 @@ welcomePopupBackground.addEventListener('click', () => {
 // script.onreadystatechange = ()=>{
 //     if (this.readyState === 'complete') this.onload()
 // }
-
-
-console.log('hello');
-
 
 

@@ -180,19 +180,24 @@ ul {
 /* === ru: Попап(всплывающие окна) en: Popap */
 
 .popup_background {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
     background: rgb(0 0 0 / 75%);
     z-index: 1000;
-    display: none;
+    visibility: hidden;
+    transform: scale(0);
+    opacity: 0;
+    transition: opacity .40s linear;
     overflow: hidden;
 }
 
 .popup_background.active {
-    display: block;
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
 }
 
 .popup_form {
@@ -357,7 +362,6 @@ ul {
     overflow: hidden;
     transition: all .3s ease;
     background: rgba(168, 167, 167, 0.3);
-    /* border-bottom: 1px solid rgb(255, 255, 255); */
     z-index: 1;
 }
 
@@ -574,7 +578,6 @@ ul {
 /* === ru: В мобильной версии нижний блок управление en: In the mobile version, the lower control unit === */
 
 #footer_mobile {
-    /* margin-top: 30px; */
     font-size: 30px;
     color: red;
     background-color: rgb(255, 255, 255);
@@ -789,88 +792,51 @@ ul {
 }
 
 /* === ru: Настройки en: Setting === */
-
-#setting {
+.swiper-pagination {
+    top: 0px;
+    left: 0;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: calc(100vw / 2 - 300px);
-    top: calc(100vh / 2 - 300px);
-    transition: all .30s linear;
-    background: url(../graphics/bg_setting.jpg) no-repeat 0 0/cover;
-    z-index: 1;
-    width: 600px;
-    height: auto;
-}
-
-#choice_of_settings {
     height: 45px;
-    display: flex;
-    overflow-x: auto;
 }
 
-#choice_of_settings li {
-    /* font-family: 'Supermercado One', cursive;  */
+span.swiper-pagination-bullet {
+    width: calc(100% / 3);
+    height: inherit;
+    line-height: 45px;
+    border-radius: 0%;
+    margin: 0 !important;
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.97);
-    font-size: 18px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding: 10px;
+    font-size: 25px;
+    transform: skew(-10deg);
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
-    position: relative;
 }
 
-#choice_of_settings li::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0%;
-    height: 5px;
-    background-image: linear-gradient(to top, #ffffff, #ffffff, #820327, #c20023, #ff0000);
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: width .40s ease-in-out 0s;
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    color: rgb(255, 0, 0);
+    background-color: transparent;
 }
 
-#choice_of_settings li:hover {
-    color: red;
-    background: rgba(26, 24, 24, 0.5);
-    cursor: pointer;
-}
-
-#choice_of_settings li.active::after {
-    color: red;
-    visibility: visible;
-    transform: scaleX(1);
-    width: 100%;
-}
-
-#settings_window {
-    width: inherit;
-    height: 500px;
-    margin-top: 20px;
-    display: flex;
-}
-
-.block_content {
-    width: inherit;
-    flex-shrink: 0;
-    transition: all .50s linear;
-    padding: 0 10px;
+.swiper-container {
+    padding-top: 45px !important;
     overflow: hidden;
+    width: 50%;
+    height: 600px;
+    position: fixed;
+    left: calc(100vw / 50%);
+    top: calc(100vh / 2 - 300px);
+    background: url(../graphics/bg_setting.jpg) no-repeat 0 0/cover;
+}
+
+
+.swiper-slide {
+    padding: 0 10px;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
 }
 
-#sett_1 ul {
-    flex-grow: 1;
-}
-
-#sett_1 ul>li {
+.swiper-slide ul>li {
     border-bottom: 1px solid #ccc;
     font-family: 'Supermercado One', cursive;
     font-size: 19px;
@@ -883,10 +849,6 @@ ul {
     justify-content: space-between;
     align-items: center;
 }
-
-/* #error_correction{
-    color: red;
-} */
 
 .items {
     font-weight: bold;
@@ -909,16 +871,6 @@ ul {
     color: #000;
     font-weight: bold;
 }
-
-#sett_2 {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-/* #setting_bg{
-    
-} */
 
 #select_block {
     display: flex;
@@ -959,11 +911,6 @@ ul {
     height: 40px;
     border-radius: 50%;
     border: 2px solid #fff
-}
-
-#sett_3 {
-    height: 100%;
-    flex-direction: column;
 }
 
 .block_content_save {
@@ -1014,6 +961,7 @@ ul {
 #block_btn_google-drive {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 #block_btn_google-drive button:not(#authorize_button) {
@@ -1101,60 +1049,66 @@ ul {
     display: block;
 }
 
-
 /* === ru: Кастомный checkbox en: Custom checkbox === */
+
 .custom-checkbox {
-	position: relative;
-	cursor: pointer;
-	line-height: 24px;
+    position: relative;
+    cursor: pointer;
+    line-height: 24px;
 }
+
 .custom-checkbox input {
-	position: absolute;
-	left: -9999px;
+    position: absolute;
+    left: -9999px;
 }
+
 .custom-checkbox-button {
-	display: inline-block;
-	margin: 0 15px;
-	width: 50px;
-	border-radius: 12px;
-	background: rgba(255, 255, 255, 0.5);
-	height: 24px;
-	position: relative;
-	bottom: -4px;
-	cursor: pointer;
+    display: inline-block;
+    margin: 0 15px;
+    width: 50px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    height: 24px;
+    position: relative;
+    bottom: -4px;
+    cursor: pointer;
 }
+
 .custom-checkbox-button:before {
-	background: #fff;
-	content: "";
-	width: 26px;
-	height: 26px;
-	border-radius: 50%;
-	position: absolute;
-	top: -1px;
-	left: -1px;
-	-webkit-box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
-	        box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
-	-webkit-transition: 0.2s;
-	        transition: 0.2s;
+    background: #fff;
+    content: "";
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
+    box-shadow: 0px 0px 1px 0px rgba(44, 77, 138, 0.3), 0px 7px 8.55px 0.45px rgba(22, 44, 84, 0.15);
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
 }
+
 .custom-checkbox-button:after {
-	content: "";
-	width: 12px;
-	height: 12px;
-	position: absolute;
-	background: #707070;
-	border-radius: 50%;
-	top: 6px;
-	left: 6px;
-	-webkit-box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
-	        box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
-	-webkit-transition: 0.2s;
-	        transition: 0.2s;
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    background: #707070;
+    border-radius: 50%;
+    top: 6px;
+    left: 6px;
+    -webkit-box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15);
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
 }
+
 .custom-checkbox.checked .custom-checkbox-button:before {
-	left: 25px;
+    left: 25px;
 }
+
 .custom-checkbox.checked .custom-checkbox-button:after {
-	left: 32px;
-	background: #1967c3;
+    left: 32px;
+    background: #1967c3;
 }
