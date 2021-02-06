@@ -277,6 +277,8 @@ let timerBg;
 let selectValue;
 
 
+let addZero = num => num < 10 && '0' + num || num;
+
 //=== ru: Сохранение в локальном хранилище en: Saving to local storage ===\\
 function saveLocal(id, data) {
     localStorage.setItem(id, JSON.stringify(data));
@@ -916,8 +918,9 @@ downloadSave.addEventListener('click', () => {
         }
         //objСopySetting[localStorage.key(i)] = localStorage.getItem(localStorage.key(i))
     }
+    let data = new Date();
     downloadSave.href = 'data:application;charset=utf-8,' + encodeURIComponent(JSON.stringify(objСopySetting));
-    let promtSave = prompt('Введите название файла', 'saveBookmarks');
+    let promtSave = prompt('Введите название файла', `${addZero(data.getDate())}.${addZero(data.getMonth() + 1)}.${data.getFullYear()} saveBookmarks`);
     if (promtSave == null) promtSave = 'saveBookmarks';
     downloadSave.download = `${promtSave}.bookmarks`;
 })
