@@ -343,7 +343,10 @@ function checkURL(url) {
 function addLogo(site) {
     try {
         site = site.match(/[A-Z0-9][A-Z0-9_-]*(\.[A-Z0-9][A-Z0-9_-]*)+/i);
-        return `https://logo.clearbit.com/${site[0]}?size=300`;
+        console.log(site[0]);
+        
+        //return `https://logo.clearbit.com/${site[0]}?size=300`;
+       return `https://img.logo.dev/${site[0]}?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&format=webp&retina=true&size=128`;
     } catch (error) {
         return `./graphics/google_logo.png`;
         //return `https://logo.clearbit.com/www.google.com?size=300`;
