@@ -343,8 +343,6 @@ function checkURL(url) {
 function addLogo(site) {
     try {
         site = site.match(/[A-Z0-9][A-Z0-9_-]*(\.[A-Z0-9][A-Z0-9_-]*)+/i);
-        console.log(site[0]);
-        
         //return `https://logo.clearbit.com/${site[0]}?size=300`;
        return `https://img.logo.dev/${site[0]}?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&format=webp&retina=true&size=128`;
     } catch (error) {
@@ -360,15 +358,7 @@ inpLink.addEventListener('input', addTextInput);
 function addTextInput() {
     inpTitle.value = inpLink.value.replace(/https?:\/\//i, '');
 }
-//document.execCommand("paste")
-// for (const elem of document.querySelectorAll('.data_input')) {
-//     elem.addEventListener('contextmenu',()=>{
-//         elem.select();
-//         document.execCommand("paste");
-//         // //elem.value = document.execCommand("copy")
-//         // console.log(elem.value);
-//     })
-// }
+
 //=== ru: Очистка инпутов en: Cleaning up inputs ===\\
 function addClearInput() {
     for (const elem of document.querySelectorAll('.data_input')) {
