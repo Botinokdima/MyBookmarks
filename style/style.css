@@ -11,8 +11,17 @@
     /* outline:  1px solid red; */
 }
 
+@font-face {
+  font-family: 'MyCustomFont'; /* Придумайте название для шрифта */
+  src: url('../fonts/Sol-Kol.woff2') format('woff2');
+  font-weight: 400; /* Нормальный вес */
+  font-style: normal; /* Обычное начертание */
+  font-display: swap; /* Показывает системный шрифт, пока грузится ваш */
+}
+
 body {
     margin: 0;
+     /* font-family: 'MyCustomFont', sans-serif; */
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
     height: auto;
@@ -460,9 +469,11 @@ ul {
     box-shadow: -4px 0 0 rgba(0, 0, 0, .2);
     text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
     color: #fff;
-    font: bold 16px/40px 'Lucida sans', Arial, Helvetica;
+    /* font: bold 16px/40px 'Lucida sans', Arial, Helvetica; */
+    font: bold 18px/40px 'MyCustomFont', sans-serif;
     padding: 0 40px 0 30px;
-    overflow-x: hidden;
+    overflow: hidden;
+    /* overflow-x: hidden; */
     text-overflow: ellipsis;
     white-space: nowrap;
 }
