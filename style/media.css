@@ -86,7 +86,8 @@
         margin: 10px 0;
     }
     #menu_groups li {
-        font: bold 15px/40px 'Lucida sans', Arial, Helvetica;
+        font: bold 18px/40px 'MyCustomFont', sans-serif;
+        /* font: bold 15px/40px 'Lucida sans', Arial, Helvetica; */
         height: 40px;
         max-width: inherit;
         border-bottom: 1px solid #000;
